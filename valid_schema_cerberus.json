@@ -1,0 +1,22 @@
+{
+    "id_client": {
+      "type": ["string", "integer"],
+      "check_with": "ids_test"
+    },
+    "item": {
+      "type": "string"
+    },
+    "value": {
+      "type": "float"
+    },
+    "discount_pct": {
+      "type": "float"
+    },
+    "discount_value": {
+      "type": "float"
+    },
+    "store_id": {
+      "type": ["string", "integer"],
+      "check_with": "ids_test"
+    }
+}
