@@ -1,11 +1,9 @@
 {
     "id_client": {
-      "type": ["string", "integer"],
-      "check_with": ["ids_test", "blabla_test"]
+      "type": "string"
     },
     "item": {
-      "type": "string",
-      "check_with": "55_code"
+      "type": "string"
     },
     "value": {
       "type": "float"
@@ -17,7 +15,6 @@
       "type": "float"
     },
     "store_id": {
-      "type": ["string", "integer"],
-      "check_with": "blabla_test"
+      "type": "string"
     }
 }

@@ -1,0 +1,8 @@
+{
+    "id_client": "int",
+    "item": "str",
+    "value": "float",
+    "discount_pct": "float",
+    "discount_value": "float",
+    "store_id": "int"
+}
