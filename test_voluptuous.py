@@ -1,4 +1,4 @@
-from voluptuous import Schema, Required, All, Length, Range
+from voluptuous import Schema, Required, MultipleInvalid, All, ALLOW_EXTRA
 import json
 import pandas as pd
 
@@ -9,20 +9,28 @@ df = pd.read_excel("sales_records.xlsx", engine="openpyxl")
 df_dict = df.to_dict(orient="records")
 
 
+def ids_test(value):
+    val = value
+    if val < 9999:
+        return val
+
+
 schema = Schema(
     {
-        Required("id_client"): int,  # All(str, Length(max=10)),
+        Required("id_client"): All(int, ids_test),
         Required("item"): str,
         Required("value"): float,
         Required("discount_pct"): float,
         Required("discount_value"): float,
         Required("store_id"): int,
-    }
+    },
 )
 
 
 # result = schema({"id_client": "123"})
 
 for idx, record in enumerate(df_dict):
-    if not schema(record):
-        print(f"item {idx}, errors:")
+    try:
+        schema(record)
+    except MultipleInvalid as e:
+        print(f"item {idx}, errors: {e}")
